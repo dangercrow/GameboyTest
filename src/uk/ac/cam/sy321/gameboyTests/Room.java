@@ -85,7 +85,7 @@ public class Room {
 	 * @param pos Position of tile to delete object from
 	 */
 	public void destroyObject(Position pos) {
-		if (validPosition(c)) tileAt(c).destroyObject();
+		if (validPosition(pos)) tileAt(pos).destroyObject();
 	}
 	
 	/**

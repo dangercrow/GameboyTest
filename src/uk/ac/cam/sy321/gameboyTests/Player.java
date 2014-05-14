@@ -12,7 +12,7 @@ public class Player extends GameObject{
 
 
 
-	public Player getPlayer(){
+	public static Player getPlayer(){
 		if(player == null){
 			player = new Player();
 		}
