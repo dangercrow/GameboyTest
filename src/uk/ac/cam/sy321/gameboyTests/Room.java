@@ -78,10 +78,15 @@ public class Room {
 		tileAt(pos).setObject(gameObject);
 	}
 	
+	/**
+	 * Creates a door at the specified location. Any current
+	 * gameObjects at that position will be deleted.
+	 * Default is locked door.
+	 * @param pos Position to create the door at
+	 */
 	public void createDoor(Position pos) {
 		if (validPosition(pos)) {
-			Tile t = tileAt(pos);
-			t = new Door();
+			tiles[pos.x][pos.y] = new Door(false);
 		}
 	}
 	
