@@ -78,6 +78,13 @@ public class Room {
 		tileAt(pos).setObject(gameObject);
 	}
 	
+	public void createDoor(Position pos) {
+		if (validPosition(pos)) {
+			Tile t = tileAt(pos);
+			t = new Door();
+		}
+	}
+	
 	/**
 	 * Deletes an object that is currently on the specified tile.
 	 * Will not do anything if that tile is currently empty or an
