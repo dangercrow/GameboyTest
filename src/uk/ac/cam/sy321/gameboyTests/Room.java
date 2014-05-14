@@ -74,7 +74,7 @@ public class Room {
 	public void placeObject(GameObject gameObject, Position pos) {
 		if (!validPosition(pos)) return;
 		//Checks for empty tile
-		if (tileAt(pos).getObject()!=null) return;
+		if (tileAt(pos).getObject() != null) return;
 		//Sets object if possible
 		tileAt(pos).setObject(gameObject);
 	}
@@ -141,7 +141,7 @@ public class Room {
 				playerPosition.y + relativePosition.y);
 
 		//Checks if co-ordinates are valid, and that destination tile is empty
-		if(validPosition(destination) && tileAt(destination).getObject()==null) {
+		if(validPosition(destination) && tileAt(destination).getObject() == null) {
 			//Destroys current instance and places new instance
 			destroyObject(playerPosition);
 			placeObject(Player.getPlayer(), destination);
@@ -157,7 +157,7 @@ public class Room {
 	 * @see #movePlayer(Position)
 	 */
 	public void movePlayer(Direction direction){
-		Position destination=new Position(playerPosition.x,playerPosition.y); // Can't not initialise?
+		Position destination = new Position(playerPosition.x,playerPosition.y); // Can't not initialise?
 		switch (direction){
 		case Up:
 			destination = new Position(playerPosition.x, playerPosition.y-1);
@@ -174,7 +174,7 @@ public class Room {
 			destination = new Position(playerPosition.x+1, playerPosition.y);
 			break;
 		}
-		if(validPosition(destination) && tileAt(destination).getObject()==null) {
+		if(validPosition(destination) && tileAt(destination).getObject() == null) {
 			//Destroys current instance and places new instance
 			destroyObject(playerPosition);
 			placeObject(Player.getPlayer(), destination);

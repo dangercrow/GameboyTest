@@ -2,13 +2,13 @@ package uk.ac.cam.sy321.gameboyTests;
 
 public class GameObject {
 
-	private char Repr='x';
+	private char Repr = 'x';
 	private Interaction interaction;
 
 
 
 	public GameObject(Interaction interact, char Representation){
-		Repr=Representation;
+		Repr = Representation;
 		interaction = interact;
 	}
 
@@ -17,7 +17,7 @@ public class GameObject {
 	}
 
 	public GameObject(char Representation){
-		Repr=Representation;
+		Repr = Representation;
 		interaction = new Interaction();
 	}
 

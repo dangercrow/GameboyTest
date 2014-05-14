@@ -2,7 +2,7 @@ package uk.ac.cam.sy321.gameboyTests;
 
 public class Door extends Tile {
 
-	private char repr='-';
+	private char repr = '-';
 
 	public Door(boolean locked){
 		super();
@@ -13,10 +13,10 @@ public class Door extends Tile {
 
 	@Override
 	public char getRepr(){
-		return (super.getObject()==null ? super.getObject().getRepr() : repr);
+		return (super.getObject() == null ? super.getObject().getRepr() : repr);
 	}
 
 	public void setRepr(char representation){
-		repr=representation;
+		repr = representation;
 	}
 }

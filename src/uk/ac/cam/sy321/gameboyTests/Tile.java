@@ -41,7 +41,7 @@ public class Tile {
 	 * @return the character representation of the tile
 	 */
 	public char getRepr(){
-		return (relatedObject!=null ? relatedObject.getRepr() : '.');
+		return (relatedObject != null ? relatedObject.getRepr() : '.');
 	}
 
 

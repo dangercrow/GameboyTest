@@ -7,7 +7,7 @@ public class GameLoader {
 	public static void main(String[] args) throws IOException{
 		int input = 0;
 		Room room = new Room();
-		while (input!='q'){
+		while (input != 'q'){
 			System.out.println("Press 'q' to quit or use 'W','A','S','D' to navigate"); // use the cursor keys to navigate.");
 			input = System.in.read();
 			switch (input){
