@@ -38,6 +38,9 @@ public class Tile {
 		hasObject=visible;
 	}
 
+	public char getRepr(){
+		return (hasObject ? relatedObject.getRepr() : '.');
+	}
 
 
 	public void onStep(){
