@@ -1,6 +1,6 @@
 package uk.ac.cam.sy321.gameboyTests;
 
-class Room {
+public class Room {
 	
 	private Tile[][] tiles;
 	private int width;
@@ -52,42 +52,79 @@ class Room {
 	 */
 	public int getWidth()  { return width;  }
 	
+	/**
+	 * @param c The position of the required tile.
+	 * @return The tile at the specified location.
+	 */
 	public Tile getTile(Position c) {
-		if(!validCoOrds(c)) return null;
+		if(!validPosition(c)) return null;
 		else return tileAt(c);
 	}
 	
-	public void placeObject(GameObject go, CoOrds c) {
-		if (!validCoOrds(c)) return;
+	/**
+	 * Places a game object at the specified location in the room.
+	 * Checks if the requested position is valid, and checks if that
+	 * tile has an object already. Will place the object on an empty
+	 * tile in a valid position.
+	 * 
+	 * @param gameObject The game object to be placed
+	 * @param pos  The position to place the object
+	 */
+	public void placeObject(GameObject gameObject, Position pos) {
+		if (!validPosition(pos)) return;
 		//Checks for empty tile
-		if (tileAt(c).hasObject()) return;
+		if (tileAt(pos).hasObject()) return;
 		//Sets object if possible
-		tileAt(c).setObject(go);
+		tileAt(pos).setObject(gameObject);
 	}
 	
-	public void destroyObject(CoOrds c) {
-		//TODO: Write method to delete object
-		//		Change reference to null and change flag
-		if (validCoOrds(c)) tileAt(c).destroyObject();
+	/**
+	 * Deletes an object that is currently on the specified tile.
+	 * Will not do anything if that tile is currently empty or an
+	 * invalid position is given
+	 * @param pos Position of tile to delete object from
+	 */
+	public void destroyObject(Position pos) {
+		if (validPosition(c)) tileAt(c).destroyObject();
 	}
 	
-	private boolean validCoOrds(CoOrds c) {
+	/**
+	 * Checks that the passed position is valid. A valid position
+	 * will be within the range [0, width-1] for x and
+	 * [0, height-1] for y.
+	 * @param pos Position to be checked
+	 * @return Boolean showing whether the position is valid
+	 */
+	private boolean validPosition(Position pos) {
 		//Checks for valid co-ordinates
-		if (c.x < 0 || c.y < 0 || c.x >= width || c.y >= height) return false;
+		if (pos.x < 0 || pos.y < 0 || pos.x >= width || pos.y >= height) return false;
 		else return true;
 	}
 	
-	private Tile tileAt(CoOrds c) {
-		if (validCoOrds(c)) return tiles[c.x][c.y];
+	/**
+	 * @param pos Position of tile to be returned
+	 * @return The tile at the requested position
+	 */
+	private Tile tileAt(Position pos) {
+		if (validPosition(pos)) return tiles[pos.x][pos.y];
 		else return null;
 	}
 	
-	public void movePlayer(CoOrds relativePosition) {
-		CoOrds destination = new CoOrds(playerPosition.x + relativePosition.x,
+	/**
+	 * Moves the player object relative to its current position. Will
+	 * destroy the player object on the old tile and place it in its
+	 * new position. Will automatically check for objects at the destination
+	 * and whether the new position is valid. Will do nothing if there is
+	 * already an object there, or the move would leave player object in an invalid
+	 * position.
+	 * @param relativePosition The movement of the player object relative to its current position
+	 */
+	public void movePlayer(Position relativePosition) {
+		Position destination = new Position(playerPosition.x + relativePosition.x,
 										playerPosition.y + relativePosition.y);
 		
 		//Checks if co-ordinates are valid, and that destination tile is empty
-		if(validCoOrds(destination) && !tileAt(destination).hasObject()) {
+		if(validPosition(destination) && !tileAt(destination).hasObject()) {
 			//Destroys current instance and places new instance
 			destroyObject(playerPosition);
 			placeObject(Player.getPlayer(), destination);

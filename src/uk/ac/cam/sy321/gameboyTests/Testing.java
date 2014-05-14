@@ -4,7 +4,6 @@ public class Testing {
 
 	public static void main(String[] args) {
 		Room r = new Room();
-
 	}
 
 }
