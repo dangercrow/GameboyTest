@@ -5,6 +5,8 @@ public class Testing {
 	public static void main(String[] args) {
 		Room r = new Room();
 		drawRoom(r);
+		
+		r.placeObject(new Wall(), new Position(7,2));
 
 		System.out.println("Sticking in a door...");
 		r.createDoor(new Position(0,2));
