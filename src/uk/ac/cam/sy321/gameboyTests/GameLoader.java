@@ -7,6 +7,11 @@ public class GameLoader {
 	public static void main(String[] args) throws IOException{
 		int input = 0;
 		Room room = new Room();
+		GameObject cat = new GameObject('c');
+		Interaction interact = new Interaction(cat);
+		cat.setInteraction(interact);
+		cat.setName("cat");
+		room.placeObject(cat, new Position(3,3));
 		drawRoom(room);
 		System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 		while (input != 'q'){
