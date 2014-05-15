@@ -2,6 +2,7 @@ package uk.ac.cam.sy321.gameboyTests;
 
 public class Interaction {
 	GameObject obj;
+	
 	public Interaction(GameObject object){
 		obj=object;
 	}
