@@ -7,6 +7,6 @@ public class Interaction {
 	}
 	
 	public void run(){
-		System.out.println("You have interacted with a " + obj.getName() } ".");
+		System.out.println("You have interacted with a " + obj.getName() + ".");
 	}
 }
