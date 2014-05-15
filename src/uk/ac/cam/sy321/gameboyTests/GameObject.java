@@ -80,6 +80,6 @@ public class GameObject {
 
 
 	public void onInteract(){
-
+		interaction.run();
 	}
 }
