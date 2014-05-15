@@ -7,6 +7,7 @@ public class Room {
 	private int height;
 	private Position playerPosition;
 	public enum Direction{Up,Down,Left,Right};
+	private Direction facing;
 
 	/**
 	 * Creates a new room with 20x6 tiles. Will add walls to the 4 edges
@@ -157,7 +158,8 @@ public class Room {
 	 * @see #movePlayer(Position)
 	 */
 	public void movePlayer(Direction direction){
-		Position destination = new Position(playerPosition.x,playerPosition.y); // Can't not initialise?
+		facing=direction;
+		Position destination = new Position(playerPosition.x,playerPosition.y); // TODO: Can't not initialise?
 		switch (direction){
 		case Up:
 			destination = new Position(playerPosition.x, playerPosition.y-1);
@@ -181,6 +183,28 @@ public class Room {
 			playerPosition = destination;
 
 		}
+	}
+	
+
+	public void interact(){
+		Position lookingAt = new Position(playerPosition.x,playerPosition.y); // TODO: Can't not initialise?
+		switch (facing){
+		case Up:
+			lookingAt = new Position(playerPosition.x, playerPosition.y-1);
+			break;
+		case Down:
+			lookingAt = new Position(playerPosition.x, playerPosition.y+1);
+			break;
+
+		case Left:
+			lookingAt = new Position(playerPosition.x-1, playerPosition.y);
+			break;
+
+		case Right:
+			lookingAt = new Position(playerPosition.x+1, playerPosition.y);
+			break;
+		}
+		getTile(lookingAt).getObject().onInteract();
 	}
 
 }

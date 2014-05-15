@@ -4,7 +4,8 @@ public class GameObject {
 
 	private char Repr = 'x';
 	private Interaction interaction;
-
+	//TODO: Sprite
+	private String name=new String();
 
 
 	public GameObject(Interaction interact, char Representation){
@@ -18,11 +19,11 @@ public class GameObject {
 
 	public GameObject(char Representation){
 		Repr = Representation;
-		interaction = new Interaction();
+		interaction = new Interaction(this);
 	}
 
 	public GameObject(){
-		interaction = new Interaction();
+		interaction = new Interaction(this);
 	}
 
 
@@ -35,7 +36,9 @@ public class GameObject {
 		return interaction;
 	}
 
-
+	public String getName(){
+		return name;
+	}
 
 	public void onInteract(){
 
