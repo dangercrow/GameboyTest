@@ -7,7 +7,7 @@ public class Player extends GameObject{
 
 
 	private Player(){
-		super('O');
+		super('>');
 	}
 
 

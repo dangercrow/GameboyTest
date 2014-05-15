@@ -10,7 +10,4 @@ public class Wall extends GameObject{
 		super('#'); // TODO: better block character
 		name = "wall";
 	}
-
-	@Override
-	public void onInteract(){}
 }
