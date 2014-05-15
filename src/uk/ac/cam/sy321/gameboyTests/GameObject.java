@@ -7,35 +7,9 @@ public class GameObject {
 	//TODO: Sprite
 	protected String name;
 
-	/**
-	 * Creates a new game object with an interaction tied to it and
-	 * a specified character representation
-	 * @param interact An interaction class that shows what happens when
-	 * the object is interacted with
-	 * @param Representation A character to be used for the symbol
-	 * of the object on the map
-	 */
-	public GameObject(Interaction interact, char Representation){
-		repr = Representation;
-		interaction = interact;
-		name = new String();
-	}
 
 	/**
-	 * Creates a new game object with an interaction and the default symbol.
-	 * The default symbol is 'x'
-	 * @param interact An interaction class that shows what happens when
-	 * the object is interacted with
-	 */
-	public GameObject(Interaction interact){
-		repr = 'x';
-		interaction = interact;
-		name = new String();
-		repr = 'x';
-		}
-
-	/**
-	 * Creates a new game object with no interaction and a specified character
+	 * Creates a new game object with default interaction and a specified character
 	 * representation.
 	 * @param Representation A character to be used for the symbol of the object
 	 * on the map
@@ -47,7 +21,7 @@ public class GameObject {
 	}
 
 	/**
-	 * Creates a new game object with no interaction and the default symbol.
+	 * Creates a new game object with default interaction and the default symbol.
 	 * The default symbol is 'x'
 	 */
 	public GameObject(){
@@ -58,6 +32,14 @@ public class GameObject {
 
 	public void setRepresentation(char c){
 		repr=c;
+	}
+	
+	public void setInteraction(Interaction i){
+		interaction=i;
+	}
+	
+	public void setName(String n){
+		name=n;
 	}
 
 
