@@ -8,7 +8,7 @@ public class GameLoader {
 		int input = 0;
 		Room room = new Room();
 		while (input != 'q'){
-			System.out.println("Press 'q' to quit or use 'W','A','S','D' to navigate"); // use the cursor keys to navigate.");
+			System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 			input = System.in.read();
 			switch (input){
 			case 'w':
@@ -26,6 +26,9 @@ public class GameLoader {
 			case 'd':
 				room.movePlayer(Room.Direction.Right);
 				drawRoom(room);
+				break;
+			case 'e':
+				room.interact();
 				break;
 			default:
 				break;
