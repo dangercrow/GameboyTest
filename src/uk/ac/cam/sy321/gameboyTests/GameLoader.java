@@ -7,25 +7,30 @@ public class GameLoader {
 	public static void main(String[] args) throws IOException{
 		int input = 0;
 		Room room = new Room();
+		drawRoom(room);
+		System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 		while (input != 'q'){
-			System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 			input = System.in.read();
 			switch (input){
 			case 'w':
 				room.movePlayer(Room.Direction.Up);
 				drawRoom(room);
+				System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 				break;
 			case 'a':
 				room.movePlayer(Room.Direction.Left);
 				drawRoom(room);
+				System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 				break;
 			case 's':
 				room.movePlayer(Room.Direction.Down);
 				drawRoom(room);
+				System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 				break;
 			case 'd':
 				room.movePlayer(Room.Direction.Right);
 				drawRoom(room);
+				System.out.println("Press 'q' to quit or use 'w','a','s','d' to navigate. 'e' to interact"); // use the cursor keys to navigate.");
 				break;
 			case 'e':
 				room.interact();

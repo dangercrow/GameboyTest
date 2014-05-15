@@ -18,7 +18,8 @@ public class Room {
 		tiles = new Tile[20][6];
 		width = 20;
 		height = 6;
-
+		facing=Direction.Right;
+		
 		//Initialises tiles
 		for(int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -163,17 +164,22 @@ public class Room {
 		switch (direction){
 		case Up:
 			destination = new Position(playerPosition.x, playerPosition.y-1);
+			Player.getPlayer().setRepresentation('^');
 			break;
+
 		case Down:
 			destination = new Position(playerPosition.x, playerPosition.y+1);
+			Player.getPlayer().setRepresentation('V');
 			break;
 
 		case Left:
 			destination = new Position(playerPosition.x-1, playerPosition.y);
+			Player.getPlayer().setRepresentation('<');
 			break;
 
 		case Right:
 			destination = new Position(playerPosition.x+1, playerPosition.y);
+			Player.getPlayer().setRepresentation('>');
 			break;
 		}
 		if(validPosition(destination) && tileAt(destination).getObject() == null) {
@@ -184,7 +190,7 @@ public class Room {
 
 		}
 	}
-	
+
 
 	public void interact(){
 		Position lookingAt = new Position(playerPosition.x,playerPosition.y); // TODO: Can't not initialise?
@@ -204,7 +210,10 @@ public class Room {
 			lookingAt = new Position(playerPosition.x+1, playerPosition.y);
 			break;
 		}
-		getTile(lookingAt).getObject().onInteract();
+		if (getTile(lookingAt).getObject()!=null){
+			getTile(lookingAt).getObject().onInteract();			
+		}
+
 	}
 
 }

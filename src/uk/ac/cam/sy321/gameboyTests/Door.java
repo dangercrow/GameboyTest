@@ -13,7 +13,7 @@ public class Door extends Tile {
 
 	@Override
 	public char getRepr(){
-		return (super.getObject() == null ? super.getObject().getRepr() : repr);
+		return (super.getObject() != null ? super.getObject().getRepr() : repr);
 	}
 
 	public void setRepr(char representation){
