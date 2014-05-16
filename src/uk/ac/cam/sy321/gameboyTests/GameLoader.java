@@ -8,7 +8,7 @@ public class GameLoader {
 		int input = 0;
 		Room room = new Room();
 		GameObject cat = new GameObject('c');
-		Interaction interact = new Interaction(cat);
+		Dialogue interact = new Dialogue(cat,new String[] {"Cat!","I'm a kitty cat!","And I dance dance dance,","And I dance dance dance."});
 		cat.setInteraction(interact);
 		cat.setName("cat");
 		room.placeObject(cat, new Position(3,3));
