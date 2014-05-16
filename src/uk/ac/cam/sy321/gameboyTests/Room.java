@@ -148,7 +148,7 @@ public class Room {
 			destroyObject(playerPosition);
 			placeObject(Player.getPlayer(), destination);
 			playerPosition = destination;
-
+			tileAt(destination).onStep();
 		}
 	}
 
